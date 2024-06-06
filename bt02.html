@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function divideNumbers(a,b){
+            let result
+            try {
+                if(b === 0){
+                    result = `Lỗi: Không thể chia cho 0`
+                }else{
+                    result = a/b
+                }
+            } catch (error) {
+                result = `Lỗi: phải nhập vào hai số`
+            }finally{
+                console.log("Kết thúc hàm divideNumber");
+            }
+            return result
+        }
+
+        console.log(divideNumbers(10,2));
+        console.log(divideNumbers(10,0));
+        console.log(divideNumbers("abc",2));
+    </script>
+</body>
+</html>

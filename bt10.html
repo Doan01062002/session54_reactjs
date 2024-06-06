@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Element with Promise</title>
+</head>
+<body>
+    <script>
+        function findElement(arr, value) {
+            return new Promise((resolve, reject) => {
+                if (!Array.isArray(arr) || !arr.every(Number.isInteger)) {
+                    reject("Tham số truyền vào phải là một mảng các số nguyên.");
+                } else {
+                    const foundElement = arr.find(element => element === value);
+                    if (foundElement !== undefined) {
+                        resolve(foundElement);
+                    } else {
+                        reject("Không tìm thấy phần tử");
+                    }
+                }
+            });
+        }
+
+        findElement([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5], 5).then(result => {
+            console.log("Phần tử tìm thấy:", result);
+        }).catch(error => {
+            console.error(error);
+        });
+
+        findElement([10, 5, 0, -5, 20], 15).then(result => {
+            console.log("Phần tử tìm thấy:", result);
+        }).catch(error => {
+            console.error(error);
+        });
+
+        findElement("not an array", 5).then(result => {
+            console.log("Phần tử tìm thấy:", result);
+        }).catch(error => {
+            console.error(error);
+        });
+    </script>
+</body>
+</html>
